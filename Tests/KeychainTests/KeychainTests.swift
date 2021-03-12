@@ -2,14 +2,15 @@ import XCTest
 @testable import Keychain
 
 final class KeychainTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Keychain().text, "Hello, World!")
+    
+    func testBaseQuery() {
+        let key = "some_key"
+        let dictionary = Keychain.baseQuery(withKey: key, querySecClass: kSecClassCertificate)
+        XCTAssertEqual(dictionary[kSecClass] as! CFString, kSecClassCertificate)
+        XCTAssertEqual(dictionary[kSecAttrService] as? String, key)
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testBaseQuery),
     ]
 }
