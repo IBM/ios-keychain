@@ -79,35 +79,3 @@ public class Keychain {
         ])
     }
 }
-
-// MARK: - Certificate
-
-extension Keychain {
-    public static func storeCertifiate(_ data: Data, for key: String, dependencies: Dependencies = Dependencies()) throws {
-        try store(data, querySecClass: kSecClassCertificate, for: key)
-    }
-    
-    public static func deleteCertifiate(for key: String, dependencies: Dependencies = Dependencies()) throws {
-        try delete(for: key, querySecClass: kSecClassCertificate, dependencies: dependencies)
-    }
-    
-    public static func fetchCertifiate(for key: String, dependencies: Dependencies = Dependencies()) throws -> Data? {
-        try fetch(for: key, querySecClass: kSecClassCertificate, dependencies: dependencies)
-    }
-}
-
-// MARK: - Generic Password
-
-extension Keychain {
-    public static func storePasswors(_ data: Data, for key: String, dependencies: Dependencies = Dependencies()) throws {
-        try store(data, querySecClass: kSecClassGenericPassword, for: key)
-    }
-    
-    public static func deletePasswors(for key: String, dependencies: Dependencies = Dependencies()) throws {
-        try delete(for: key, querySecClass: kSecClassGenericPassword, dependencies: dependencies)
-    }
-    
-    public static func fetchPasswors(for key: String, dependencies: Dependencies = Dependencies()) throws -> Data? {
-        try fetch(for: key, querySecClass: kSecClassGenericPassword, dependencies: dependencies)
-    }
-}
