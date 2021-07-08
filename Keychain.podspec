@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name            = "Keychain"
-    s.version         = "1.0.3"
+    s.version         = "1.0.4"
     s.summary         = "Keychain SDK that will be used for enhancing work wih Keychaon."
     s.homepage        = "https://github.com/IBM/ios-keychain.git"
     s.license         = "TBD"
